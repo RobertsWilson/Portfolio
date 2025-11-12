@@ -1,59 +1,109 @@
-# Portfolio
+Mi Portfolio Personal (SPA con Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+¡Bienvenido a mi proyecto de portfolio! Esta es una Single Page Application (SPA) construida con Angular (v17+), diseñada para ser un portfolio web interactivo y, sobre todo, fácilmente personalizable.
 
-## Development server
+Toda la información que ves en las páginas (mis datos personales, la lista de proyectos y la info de contacto) se carga dinámicamente desde archivos JSON locales, simulando cómo funcionaría una API real.
 
-To start a local development server, run:
+Este proyecto fue desarrollado siguiendo las consignas de un desafío técnico, enfocado en las buenas prácticas de Angular.
 
-```bash
+✨ Características y Stack Tecnológico
+
+Este no es un portfolio HTML estático. Es una aplicación de Angular que demuestra los siguientes conceptos clave:
+
+Framework: Angular 17+
+
+Arquitectura: Componentes Standalone (independientes).
+
+Routing: Navegación fluida entre páginas (SPA) gestionada por Angular Router (provideRouter y routerLink).
+
+Servicios e Inyección de Dependencias: Un único PortfolioService centraliza la lógica de datos y se inyecta (inject) en los componentes que lo necesitan.
+
+Peticiones HTTP: Uso de HttpClient (configurado con provideHttpClient(withFetch()) en app.config.ts) para leer los archivos JSON.
+
+Programación Reactiva: Uso de Observables (de RxJS) para manejar la carga de datos asíncrona, con manejo de errores catchError.
+
+Renderizado Dinámico:
+
+Directivas Estructurales: *ngIf para mostrar estados de "Cargando..." o "Error", y *ngFor para renderizar la lista de proyectos.
+
+Binding: Interpolación ({{ }}) para mostrar texto y Property Binding ([src], [href]) para atributos dinámicos (como imágenes y enlaces).
+
+Estilos: CSS modular y encapsulado por componente para un diseño limpio y mantenible.
+
+🚀 Cómo Empezar
+
+Si quieres clonar y ejecutar este proyecto, solo necesitas seguir estos pasos:
+
+Clonar el repositorio:
+
+git clone [https://github.com/RobertsWilson/Portfolio.git](https://github.com/RobertsWilson/Portfolio.git)
+cd Portfolio
+
+
+Instalar dependencias:
+
+npm install
+
+
+Ejecutar el servidor de desarrollo:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+O, si prefieres (según package.json):
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+npm start
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Abre tu navegador en http://localhost:4200/ y verás la aplicación funcionando.
 
-```bash
-ng generate --help
-```
+🔧 ¡Personaliza tu Propio Portfolio!
 
-## Building
+Lo mejor de este proyecto es que no necesitas tocar el código de Angular para cambiar la información.
 
-To build the project run:
+Toda tu información personal y tus proyectos se gestionan desde dos archivos en la carpeta src/assets/:
 
-```bash
-ng build
-```
+1. Para cambiar tu información personal
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Modifica el archivo src/assets/datos-personales.json:
 
-## Running unit tests
+{	
+  "nombre": "Tu Nombre Aquí",
+  "titulo": "Tu Título Profesional",
+  "Institucion": "Tu Institución",
+  "descripcion": "Una descripción genial sobre ti...",
+  "foto": "[https://url-de-tu-foto.com/tu-foto.jpg](https://url-de-tu-foto.com/tu-foto.jpg)",
+  "email": "tu@email.com",
+  "telefono": "+12 3 4567 8900",
+  "linkedin": "[https://linkedin.com/in/tu-usuario](https://linkedin.com/in/tu-usuario)",
+  "github": "[https://github.com/tu-usuario](https://github.com/tu-usuario)"
+}
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+2. Para agregar tus proyectos
 
-## Running end-to-end tests
+Modifica el archivo src/assets/proyectos.json (puedes añadir tantos proyectos como quieras en el array):
 
-For end-to-end (e2e) testing, run:
+[
+  {
+    "id": 1,
+    "nombre": "Mi Nuevo Proyecto",
+    "descripcion": "Descripción de este increíble proyecto que hice.",
+    "tecnologias": ["Angular", "Firebase", "Node.js"],
+    "linkRepositorio": "[https://github.com/](https://github.com/)...",
+    "asignatura": "Materia Opcional",
+    "docente": "Nombre Docente"
+  },
+  {
+    "id": 2,
+    "nombre": "Otro Proyecto",
+    "descripcion": "...",
+    "tecnologias": ["React", "CSS"],
+    "linkRepositorio": "[https://github.com/](https://github.com/)...",
+    "asignatura": "...",
+    "docente": "..."
+  }
+]
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Una vez que guardes los cambios en los archivos JSON, la página se recargará automáticamente y mostrará tu nueva información.
