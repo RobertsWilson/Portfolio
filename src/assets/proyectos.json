@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Truco Web",
+    "descripcion": "Pagina web para el juego argentino Truco, construida con Java y JSP para el backend.",
+    "tecnologias": ["Java", "Spring", "MySQL", "JSP"],
+    "linkRepositorio": "https://github.com/RobertsWilson/Proyecto_Truco_Web.git",
+    "asignatura": "Practica Profesionalizante I",
+    "docente": "Mauro Ramirez / Analia Cassali"
+  },
+  {
+    "id": 2,
+    "nombre": "Portfolio con Angular",
+    "descripcion": "Este mismo sitio web personal, desarrollado con Angular para practicar conceptos de SPA, componentes y servicios.",
+    "tecnologias": ["Angular", "TypeScript", "CSS"],
+    "linkRepositorio": "https://github.com/RobertsWilson/Portfolio.git",
+    "asignatura": "Programación I",
+    "docente": "Analia Cassali"
+  }
+]

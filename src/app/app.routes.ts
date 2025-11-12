@@ -6,10 +6,10 @@ import { Contacto } from './features/contacto/contacto';
 
 export const routes: Routes = [
 
-    {path: 'Inicio', component: Inicio},
-    {path: 'SobreMi', component: Sobremi},
-    {path: 'Misproyectos', component: Misproyectos},
-    {path: 'Contacto', component: Contacto},
+    {path: 'inicio', component: Inicio},
+    {path: 'sobremi', component: Sobremi},
+    {path: 'misproyectos', component: Misproyectos},
+    {path: 'contacto', component: Contacto},
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
     { path: '**', redirectTo: '/inicio' }
 
