@@ -6,7 +6,7 @@ import { DatosPersonales } from '../../models/datos';
 @Component({
   selector: 'app-sobremi',
   standalone: true, 
-  imports: [CommonModule], // CommonModule nos da *ngIf
+  imports: [CommonModule],
   templateUrl: './sobremi.html',
   styleUrl: './sobremi.css'
 })
@@ -14,7 +14,6 @@ export class Sobremi implements OnInit { // 2. Implementamos OnInit
   
   private portfolioService = inject(PortfolioService);
 
-  // 3. Definimos las propiedades de la clase (en lugar de signals)
   public datos: DatosPersonales | null = null;
   public cargando: boolean = true;
   public error: string | null = null;

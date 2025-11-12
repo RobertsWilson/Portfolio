@@ -1,0 +1,81 @@
+/* Contenedor principal de la página "Sobre Mí" */
+.sobre-mi-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que se apilen en pantallas pequeñas */
+  align-items: center;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  gap: 2.5rem; /* Espacio entre la foto y la info */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Contenedor de la foto de perfil */
+.foto-container {
+  flex: 1; /* Ocupa 1 parte del espacio */
+  text-align: center;
+  min-width: 250px; /* Ancho mínimo para la foto */
+}
+
+.foto-perfil {
+  width: 100%;
+  max-width: 300px; /* La foto no será más grande que 300px */
+  height: auto;
+  border-radius: 50%; /* Imagen redonda */
+  border: 6px solid #3f51b5; /* Borde con el color del tema */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de la información textual */
+.info-container {
+  flex: 2; /* Ocupa 2 partes, el doble que la foto */
+  min-width: 300px; /* Ancho mínimo */
+}
+
+.nombre {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+}
+
+.titulo {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #3f51b5; /* Color del tema */
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor para los botones/enlaces de contacto */
+.contacto-links {
+  display: flex;
+  flex-wrap: wrap; /* Para que se apilen si no caben */
+  gap: 1rem;
+}
+
+.info-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #3f51b5;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #3f51b5;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.info-link:hover {
+  background-color: #3f51b5;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

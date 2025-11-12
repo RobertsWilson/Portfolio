@@ -1,4 +1,53 @@
-<div class="page-container">
-  <h1>Contacto</h1>
-  <p>Esta es la página de CONTACTO.</p>
+<!-- 1. Estado de Carga -->
+<!-- Se muestra solo si 'cargando' es true -->
+<div *ngIf="cargando" class="page-container">
+  <p>Cargando información de contacto...</p>
+</div>
+
+<!-- 2. Estado de Error -->
+<!-- Se muestra solo si 'error' es true (tiene un mensaje) -->
+<div *ngIf="error" class="page-container">
+  <p style="color: red;">{{ error }}</p>
+</div>
+
+<!-- 3. Estado de Éxito -->
+<!-- Se muestra solo si 'datos' existe Y no está cargando NI hay error -->
+<div *ngIf="datos && !cargando && !error" class="contact-wrapper">
+  
+  <div class="contact-header">
+    <h1>Hablemos</h1>
+    <p>¿Interesado en colaborar o tienes alguna pregunta? Contáctame.</p>
+  </div>
+
+  <!-- Grilla de Tarjetas de Contacto -->
+  <div class="contact-grid">
+
+    <!-- Tarjeta de Email -->
+  
+    <a [href]="'mailto:' + datos.email" class="contact-card">
+      <span class="icon">📧</span>
+      <h3>Email</h3>
+      <p>{{ datos.email }}</p>
+    </a>
+
+    <a [href]="'tel:' + datos.telefono" target="_blank" class="contact-card">
+      <span class="icon">📞</span>
+      <h3>Teléfono</h3>
+      <p>{{ datos.telefono }}</p>
+    </a>
+
+    <!-- Tarjeta de LinkedIn -->
+    <a [href]="datos.linkedin" rel="noopener noreferrer" class="contact-card">
+      <span class="icon">🔗</span>
+      <h3>LinkedIn</h3>
+      <p>Conecta conmigo</p>
+    </a>
+
+    <!-- Tarjeta de GitHub -->
+    <a [href]="datos.github"  rel="noopener noreferrer" class="contact-card">
+      <span class="icon">💻</span>
+      <h3>GitHub</h3>
+    </a>
+
+  </div>
 </div>

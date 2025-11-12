@@ -1,5 +1,27 @@
-<div class="page-container">
-  <h1>Sobre Mí</h1>
-  <p>Esta es la página de SOBRE MÍ.</p>
-  <p>Aquí irá la información de <code>datos-personales.json</code>.</p>
+<div *ngIf="cargando" class="page-container">
+  <p>Cargando información...</p>
+</div>
+
+<div *ngIf="error" class="page-container">
+  <p style="color: red;">{{ error }}</p>
+</div>
+
+<div *ngIf="datos && !cargando && !error" class="sobre-mi-container">
+    
+    <div class="foto-container">
+      <img [src]="datos.foto" [alt]="'Foto de ' + datos.nombre" class="foto-perfil">
+    </div>
+
+    <div class="info-container">
+      <h1 class="nombre">{{ datos.nombre }}</h1>
+      <h2 class="titulo">{{ datos.titulo }} en {{ datos.Institucion }}</h2>
+      <p class="descripcion">{{ datos.descripcion }}</p>
+
+      <div class="contacto-links">
+        <a [href]="datos.github" target="_blank" class="info-link">GitHub</a>
+        <a [href]="datos.linkedin" target="_blank" class="info-link">LinkedIn</a>
+        <a [href]="'mailto:' + datos.email" class="info-link">Email</a>
+        <a [href]="'tel:' + datos.telefono" class="info-link">Teléfono</a>
+      </div>
+    </div>
 </div>

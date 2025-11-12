@@ -1,5 +1,41 @@
-<div class="page-container">
-  <h1>Mis Proyectos</h1>
-  <p>Esta es la página de PROYECTOS.</p>
-  <p>Aquí irá la lista de <code>proyectos.json</code>.</p>
+
+<div *ngIf="cargando" class="page-container">
+  <p>Cargando proyectos...</p>
+</div>
+
+<div *ngIf="error" class="page-container">
+  <p style="color: red;">{{ error }}</p>
+</div>
+
+
+<div *ngIf="!cargando && !error && proyectos.length > 0" class="proyectos-grid">
+
+
+  <div *ngFor="let p of proyectos" class="proyecto-card">
+    
+    <div>
+      <!-- Interpolación para mostrar datos -->
+      <h2>{{ p.nombre }}</h2>
+      <p class="docente-info">
+        <strong>Asignatura:</strong> {{ p.asignatura }} | 
+        <strong>Docente:</strong> {{ p.docente }}
+      </p>
+      <p class="descripcion">{{ p.descripcion }}</p>
+    </div>
+
+    <!-- Footer de la tarjeta -->
+    <div>
+      <div class="tecnologias-lista">
+        <!-- *ngFor anidado para los badges de tecnología -->
+        <span *ngFor="let tec of p.tecnologias" class="tecnologia-badge">
+          {{ tec }}
+        </span>
+      </div>
+
+      <a [href]="p.linkRepositorio"  class="repo-link">
+        Ver Repositorio
+      </a>
+    </div>
+
+  </div>
 </div>

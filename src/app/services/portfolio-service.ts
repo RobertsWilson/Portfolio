@@ -25,7 +25,13 @@ export class PortfolioService {
   }
 
   public getProyectos(): Observable<Proyecto[]> {
-    return this.http.get<Proyecto[]>(environment.proyectosUrl);
+    return this.http.get<Proyecto[]>(environment.proyectosUrl)
+        .pipe(
+        catchError((error: any) => {
+          console.error('Error al cargar el archivo JSON', error);
+          return throwError(() => new Error('No se pudo cargar el archivo JSON'));
+        })
+      );
   }
   
 }

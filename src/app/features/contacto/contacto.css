@@ -1,0 +1,66 @@
+.contact-wrapper {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3f51b5;
+  margin: 0;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* --- Grilla de Tarjetas --- */
+.contact-grid {
+  display: grid;
+  /* Creamos 2 columnas en escritorio, 1 en móvil */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.contact-card {
+  text-decoration: none;
+  color: inherit;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  color: #3f51b5;
+}
+
+.contact-card .icon {
+  font-size: 2.5rem;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  /* Evita que el texto se rompa en lugares extraños */
+  word-break: break-word;
+}
