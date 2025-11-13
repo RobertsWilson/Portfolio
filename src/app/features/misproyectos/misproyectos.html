@@ -1,41 +1,48 @@
 
-<div *ngIf="cargando" class="page-container">
-  <p>Cargando proyectos...</p>
-</div>
-
-<div *ngIf="error" class="page-container">
-  <p style="color: red;">{{ error }}</p>
-</div>
+@if (cargando) {
+  <div class="page-container">
+    <p>Cargando proyectos...</p>
+  </div>
+} 
 
 
-<div *ngIf="!cargando && !error && proyectos.length > 0" class="proyectos-grid">
+@else if (error) {
+  <div class="page-container">
+    <p style="color: red;">{{ error }}</p>
+  </div>
+} 
 
 
-  <div *ngFor="let p of proyectos" class="proyecto-card">
+@else {
+  <div class="proyectos-grid">
     
-    <div>
-      <!-- Interpolación para mostrar datos -->
-      <h2>{{ p.nombre }}</h2>
-      <p class="docente-info">
-        <strong>Asignatura:</strong> {{ p.asignatura }} | 
-        <strong>Docente:</strong> {{ p.docente }}
-      </p>
-      <p class="descripcion">{{ p.descripcion }}</p>
-    </div>
-
-    <!-- Footer de la tarjeta -->
-    <div>
-      <div class="tecnologias-lista">
-        <!-- *ngFor anidado para los badges de tecnología -->
-        <span *ngFor="let tec of p.tecnologias" class="tecnologia-badge">
-          {{ tec }}
-        </span>
+    
+    @for (proyecto of proyectos; track proyecto.id) {
+      <div class="proyecto-card">
+        <h3>{{ proyecto.nombre }}</h3>
+        <p>{{ proyecto.descripcion }}</p>
+        
+        <div class="tecnologias-lista tecnologias-badges">
+          
+          @for (tech of proyecto.tecnologias; track $index) {
+            <span class="tech-badge">{{ tech }}</span>
+          }
+        </div>
+        
+        <p class="info-adicional"><strong>Asignatura:</strong> {{ proyecto.asignatura }}</p>
+        <p class="info-adicional"><strong>Docente:</strong> {{ proyecto.docente }}</p>
+        
+       
+        <a [href]="proyecto.linkRepositorio" class="repo-link">Ver Repositorio</a>
       </div>
+    } 
+    
 
-      <a [href]="p.linkRepositorio"  class="repo-link">
-        Ver Repositorio
-      </a>
-    </div>
+    @empty {
+      <div class="page-container">
+        <p>No hay proyectos para mostrar en este momento.</p>
+      </div>
+    }
 
   </div>
-</div>
+}

@@ -1,66 +1,73 @@
-.contact-wrapper {
+
+.contacto-container {
   max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 2rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.contact-header {
-  text-align: center;
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3f51b5;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: #555;
   margin-bottom: 3rem;
 }
 
-.contact-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #3f51b5;
-  margin: 0;
-}
-
-.contact-header p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 0.5rem;
-}
-
-/* --- Grilla de Tarjetas --- */
-.contact-grid {
+.contacto-card-grid {
   display: grid;
-  /* Creamos 2 columnas en escritorio, 1 en móvil */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
-.contact-card {
+.contacto-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   color: inherit;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
-  text-align: center;
   transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
 }
 
-.contact-card:hover {
+.contacto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  color: #3f51b5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #3f51b5;
 }
 
-.contact-card .icon {
+.contacto-icon {
   font-size: 2.5rem;
+  margin-right: 1.5rem;
 }
 
-.contact-card h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 1rem 0 0.5rem 0;
+.contacto-info {
+  text-align: left;
 }
 
-.contact-card p {
-  font-size: 1rem;
+.contacto-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3f51b5;
+  margin: 0 0 0.25rem 0;
+}
+
+.contacto-info p {
+  font-size: 0.95rem;
   color: #555;
   margin: 0;
-  /* Evita que el texto se rompa en lugares extraños */
-  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .contacto-card-grid {
+    grid-template-columns: 1fr;
+  }
 }

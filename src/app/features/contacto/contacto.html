@@ -1,53 +1,64 @@
-<!-- 1. Estado de Carga -->
-<!-- Se muestra solo si 'cargando' es true -->
-<div *ngIf="cargando" class="page-container">
-  <p>Cargando información de contacto...</p>
-</div>
 
-<!-- 2. Estado de Error -->
-<!-- Se muestra solo si 'error' es true (tiene un mensaje) -->
-<div *ngIf="error" class="page-container">
-  <p style="color: red;">{{ error }}</p>
-</div>
-
-<!-- 3. Estado de Éxito -->
-<!-- Se muestra solo si 'datos' existe Y no está cargando NI hay error -->
-<div *ngIf="datos && !cargando && !error" class="contact-wrapper">
-  
-  <div class="contact-header">
-    <h1>Hablemos</h1>
-    <p>¿Interesado en colaborar o tienes alguna pregunta? Contáctame.</p>
+@if (cargando) {
+  <div class="page-container">
+    <p>Cargando información de contacto...</p>
   </div>
+} 
 
-  <!-- Grilla de Tarjetas de Contacto -->
-  <div class="contact-grid">
 
-    <!-- Tarjeta de Email -->
-  
-    <a [href]="'mailto:' + datos.email" class="contact-card">
-      <span class="icon">📧</span>
-      <h3>Email</h3>
-      <p>{{ datos.email }}</p>
-    </a>
-
-    <a [href]="'tel:' + datos.telefono" target="_blank" class="contact-card">
-      <span class="icon">📞</span>
-      <h3>Teléfono</h3>
-      <p>{{ datos.telefono }}</p>
-    </a>
-
-    <!-- Tarjeta de LinkedIn -->
-    <a [href]="datos.linkedin" rel="noopener noreferrer" class="contact-card">
-      <span class="icon">🔗</span>
-      <h3>LinkedIn</h3>
-      <p>Conecta conmigo</p>
-    </a>
-
-    <!-- Tarjeta de GitHub -->
-    <a [href]="datos.github"  rel="noopener noreferrer" class="contact-card">
-      <span class="icon">💻</span>
-      <h3>GitHub</h3>
-    </a>
-
+@else if (error) {
+  <div class="page-container">
+    <p style="color: red;">{{ error }}</p>
   </div>
-</div>
+} 
+
+
+@else {
+  <div class="contacto-container">
+    <h1 class="page-title">Ponte en Contacto</h1>
+    <p class="page-subtitle">Estoy disponible a través de cualquiera de estos medios.</p>
+    
+    
+    @if (datos) {
+      <div class="contacto-card-grid">
+
+        
+        <a [href]="'mailto:' + datos.email" class="contacto-card">
+          <span class="contacto-icon">📧</span>
+          <div class="contacto-info">
+            <h3>Email</h3>
+            <p>{{ datos.email }}</p>
+          </div>
+        </a>
+
+        
+        <a [href]="datos.linkedin" target="_blank" rel="noopener noreferrer" class="contacto-card">
+          <span class="contacto-icon">🔗</span>
+          <div class="contacto-info">
+            <h3>LinkedIn</h3>
+            <p>Conecta conmigo</p>
+          </div>
+        </a>
+
+        
+        <a [href]="'tel:' + datos.telefono" class="contacto-card">
+          <span class="contacto-icon">📞</span>
+          <div class="contacto-info">
+            <h3>Teléfono</h3>
+            <p>{{ datos.telefono }}</p>
+          </div>
+        </a>
+
+        
+        <a [href]="datos.github" target="_blank" rel="noopener noreferrer" class="contacto-card">
+          <span class="contacto-icon">💻</span>
+          <div class="contacto-info">
+            <h3>GitHub</h3>
+            <p>Ver mis repositorios</p>
+          </div>
+        </a>
+
+      </div>
+    }
+  </div>
+}

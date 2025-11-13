@@ -1,75 +1,76 @@
-/* Contenedor principal de la página "Sobre Mí" */
+/* Estilos para src/app/features/sobremi/sobremi.css */
 .sobre-mi-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que se apilen en pantallas pequeñas */
-  align-items: center;
-  max-width: 1200px;
-  margin: 3rem auto;
+  flex-wrap: wrap; /* Permite que los elementos se muevan en pantallas pequeñas */
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 2rem;
-  gap: 2.5rem; /* Espacio entre la foto y la info */
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
 }
 
-/* Contenedor de la foto de perfil */
 .foto-container {
-  flex: 1; /* Ocupa 1 parte del espacio */
-  text-align: center;
-  min-width: 250px; /* Ancho mínimo para la foto */
+  flex: 1; /* Ocupa 1 parte */
+  min-width: 250px; /* Ancho mínimo antes de envolver */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .foto-perfil {
   width: 100%;
-  max-width: 300px; /* La foto no será más grande que 300px */
+  max-width: 300px;
   height: auto;
-  border-radius: 50%; /* Imagen redonda */
-  border: 6px solid #3f51b5; /* Borde con el color del tema */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border: 5px solid #3f51b5;
+  object-fit: cover;
 }
 
-/* Contenedor de la información textual */
 .info-container {
-  flex: 2; /* Ocupa 2 partes, el doble que la foto */
-  min-width: 300px; /* Ancho mínimo */
+  flex: 2; /* Ocupa 2 partes, es más ancho */
+  min-width: 300px;
 }
 
 .nombre {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #222;
-  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3f51b5;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .titulo {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 300;
-  color: #3f51b5; /* Color del tema */
-  margin-top: 0.5rem;
+  color: #333;
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
 .descripcion {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #555;
   margin-bottom: 2rem;
 }
 
-/* Contenedor para los botones/enlaces de contacto */
 .contacto-links {
   display: flex;
-  flex-wrap: wrap; /* Para que se apilen si no caben */
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .info-link {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: #f0f2f5;
+  color: #3f51b5;
   text-decoration: none;
   font-weight: 500;
-  color: #3f51b5;
-  padding: 0.75rem 1.25rem;
-  border: 1px solid #3f51b5;
-  border-radius: 4px;
+  border-radius: 50px; /* Bordes redondeados/píldora */
   transition: all 0.3s ease;
 }
 

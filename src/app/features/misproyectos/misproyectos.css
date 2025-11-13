@@ -1,80 +1,80 @@
-/* Contenedor principal que usa CSS Grid */
-.proyectos-grid {
+/* Estilos para src/app/features/misproyectos/misproyectos.css */
+.proyectos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1400px;
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .proyecto-card {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
 }
 
 .proyecto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.proyecto-card h2 {
+.proyecto-card h3 {
   font-size: 1.5rem;
-  color: #3f51b5; 
+  font-weight: 600;
+  color: #3f51b5;
   margin-top: 0;
-}
-
-.proyecto-card .descripcion {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #555;
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-}
-
-.docente-info {
-  font-size: 0.85rem;
-  color: #777;
-  font-style: italic;
   margin-bottom: 1rem;
 }
 
+.proyecto-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  flex-grow: 1; /* Empuja el botón al fondo */
+  margin-bottom: 1.5rem;
+}
 
-.tecnologias-lista {
+.info-adicional {
+  font-size: 0.85rem !important;
+  color: #777 !important;
+  margin-bottom: 0.25rem !important;
+  line-height: 1.2 !important;
+}
+
+.tecnologias {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
-.tecnologia-badge {
+.tech-badge {
   background-color: #e8eaf6;
   color: #3f51b5;
   padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
-
 .repo-link {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #3f51b5;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  color: #ffffff;
-  background-color: #3f51b5;
-  padding: 0.75rem 1.25rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  text-align: center;
-  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .repo-link:hover {
-  background-color: #303f9f; 
+  background-color: #303f9f; /* Un tono más oscuro */
 }
